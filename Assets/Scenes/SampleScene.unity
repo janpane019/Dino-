@@ -253,8 +253,9 @@ GameObject:
   - component: {fileID: 557702976}
   - component: {fileID: 557702975}
   - component: {fileID: 557702977}
+  - component: {fileID: 557702978}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Ground(Green)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +303,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9528302, g: 0.66967785, b: 0.66967785, a: 1}
+  m_Color: {r: 0.10624497, g: 0.8679245, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -353,6 +354,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &557702978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557702974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9154f8c06bcb9f945acb7237adb4bdc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1308631561}
 --- !u!1 &1278386403
 GameObject:
   m_ObjectHideFlags: 3
@@ -607,8 +621,9 @@ GameObject:
   - component: {fileID: 1402914018}
   - component: {fileID: 1402914017}
   - component: {fileID: 1402914019}
+  - component: {fileID: 1402914020}
   m_Layer: 0
-  m_Name: Ground (1)
+  m_Name: Ground (Red)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -656,7 +671,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9528302, g: 0.66967785, b: 0.66967785, a: 1}
+  m_Color: {r: 0.9528302, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -707,6 +722,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1402914020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402914016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9154f8c06bcb9f945acb7237adb4bdc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1308631561}
 --- !u!1 &1665561889
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +746,7 @@ GameObject:
   - component: {fileID: 1665561891}
   - component: {fileID: 1665561890}
   - component: {fileID: 1665561892}
+  - component: {fileID: 1665561893}
   m_Layer: 0
   m_Name: Ground (2)
   m_TagString: Ground
@@ -767,7 +796,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9528302, g: 0.66967785, b: 0.66967785, a: 1}
+  m_Color: {r: 0, g: 0.39481592, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -818,6 +847,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1665561893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665561889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9154f8c06bcb9f945acb7237adb4bdc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1308631561}
 --- !u!1 &1700824005
 GameObject:
   m_ObjectHideFlags: 0
