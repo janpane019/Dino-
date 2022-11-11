@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     public float Speed;
     public float JumpHeight;
+    public Camera camera;
+    
     private Rigidbody2D rb;
     private bool canJump = true;
     private bool jumpKeyHeld = false;
@@ -22,13 +24,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       transform.Translate(Speed * Time.deltaTime, 0, 0);
-        /*if (Input.GetKey(KeyCode.Space) && canJump)
-        {
-            canJump = false;
-            rb.AddForce(new Vector2(0, JumpHeight));
-            Debug.Log("Jump");
-        }*/
+        transform.Translate(Speed * Time.deltaTime, 0, 0);
+        camera.transform.position = new Vector3(transform.position.x, camera.transform.position.y, -10);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpKeyHeld = true;
