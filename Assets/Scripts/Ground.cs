@@ -25,12 +25,10 @@ public class Ground : MonoBehaviour
     }
     private void OnBecameInvisible()
     {
-        if(transform.position.x + 5 < player.transform.position.x)
-        {
-            var bc = GetComponent<BoxCollider2D>();
-            float width = bc.bounds.size.x;
-            Debug.Log(width);
-            transform.position = new Vector3(transform.position.x + width * 3, transform.position.y, transform.position.z);
-        }
+        Debug.Log("Invisible");
+        var bc = GetComponent<BoxCollider2D>();
+        float width = bc.bounds.size.x;
+        Debug.Log(width);
+        transform.position = new Vector3(transform.position.x + width * 3, transform.position.y, transform.position.z);
     }
 }

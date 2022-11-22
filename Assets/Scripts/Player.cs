@@ -33,13 +33,14 @@ public class Player : MonoBehaviour
             {
                 canJump = false;
                 rb.AddForce(Vector2.up * jumpForce * rb.mass, ForceMode2D.Impulse);
-                Debug.Log("Jump");
             }
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             jumpKeyHeld = false;
         }
+
+        Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
     }
     private void FixedUpdate()
     {
@@ -48,7 +49,6 @@ public class Player : MonoBehaviour
             if (!jumpKeyHeld && Vector2.Dot(rb.velocity, Vector2.up) > 0)
             {
                 rb.AddForce(new Vector2(0, -100) * rb.mass);
-                Debug.Log("LongJump");
             }
         }
     }
@@ -59,7 +59,6 @@ public class Player : MonoBehaviour
         if (col.gameObject.CompareTag("Ground"))
         {
             canJump = true;
-            Debug.Log("Can jump = true");
         }
     }
 }
