@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         transform.Translate(Speed * Time.deltaTime, 0, 0);
-        camera.transform.position = new Vector3(transform.position.x, camera.transform.position.y, -10);
+        camera.transform.position = new Vector3(transform.position.x + 12, camera.transform.position.y, -10);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpKeyHeld = true;
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     {
         if (!canJump)
         {
-            if (!jumpKeyHeld && Vector2.Dot(rb.velocity, Vector2.up) > 0)
+            if (!jumpKeyHeld || Vector2.Dot(rb.velocity, Vector2.up) <= 0)
             {
                 rb.AddForce(new Vector2(0, -100) * rb.mass);
             }
