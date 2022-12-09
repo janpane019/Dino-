@@ -6,18 +6,21 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float Speed;
-    public float JumpHeight;
     public Camera camera;
     
     private Rigidbody2D rb;
-    private bool canJump = true;
-    private bool jumpKeyHeld = false;
-    private float jumpForce;
+    private bool isDead;
     
+    public float buttonTime = 0.5f;
+    public float jumpHeight = 5;
+    public float cancelRate = 100;
+    float jumpTime;
+    bool jumping;
+    bool jumpCancelled;
+
     // Start is called before the first frame update
     void Start()
     {
-        jumpForce = Mathf.Sqrt(2 * Physics2D.gravity.magnitude * JumpHeight);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -26,39 +29,47 @@ public class Player : MonoBehaviour
     {
         transform.Translate(Speed * Time.deltaTime, 0, 0);
         camera.transform.position = new Vector3(transform.position.x + 12, camera.transform.position.y, -10);
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jumpKeyHeld = true;
-            if (canJump)
+            float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            jumping = true;
+            jumpCancelled = false;
+            jumpTime = 0;
+        }
+        if (jumping)
+        {
+            jumpTime += Time.deltaTime;
+            if (Input.GetKeyUp(KeyCode.Space))
             {
-                canJump = false;
-                rb.AddForce(Vector2.up * jumpForce * rb.mass, ForceMode2D.Impulse);
+                jumpCancelled = true;
+            }
+            if (jumpTime > buttonTime)
+            {
+                jumping = false;
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            jumpKeyHeld = false;
-        }
 
-        Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
+        if (!isDead) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
     }
     private void FixedUpdate()
     {
-        if (!canJump)
+        if(jumpCancelled && jumping && rb.velocity.y > 0)
         {
-            if (!jumpKeyHeld || Vector2.Dot(rb.velocity, Vector2.up) <= 0)
-            {
-                rb.AddForce(new Vector2(0, -100) * rb.mass);
-            }
+            rb.AddForce(Vector2.down * cancelRate);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         //Debug.Log(col.gameObject.name);
-        if (col.gameObject.CompareTag("Ground"))
+        if (col.gameObject.CompareTag("Obstacle"))
         {
-            canJump = true;
+            rb.bodyType = RigidbodyType2D.Static;
+            isDead = true;
+            Speed = 0;
+            Debug.Log("Die");
         }
     }
 }
