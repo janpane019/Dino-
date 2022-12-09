@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 031c323bbae12444f8168c20944149ff
+guid: 64a084fbf7c169144a51f004ff31b744
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,6 +121,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 30
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2d9a073ba8e6c40bd3654038485c74
+      internalID: 1674398916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dino_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 30
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f349e93916c9fe44e895534b51da404e
+      internalID: -1064148031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dino_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 15
         width: 15
         height: 15
@@ -131,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 156b1761380584e39834bb1ca7eba257
-      internalID: 610722617
+      spriteID: 151f806972adb0449a05b8d073f168d6
+      internalID: 783809704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dino_1
+      name: dino_3
       rect:
         serializedVersion: 2
         x: 15
@@ -152,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffd57b75fa0ac4e839341fa8bf677cf3
-      internalID: 410795208
+      spriteID: c68ecc04a602c0c49ba862ebef03e572
+      internalID: 1386468613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dino_2
+      name: dino_4
       rect:
         serializedVersion: 2
         x: 0
@@ -173,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abfe97281f1ad4a0bbf34d94e4df9e8f
-      internalID: 1920229026
+      spriteID: 4b623175c7542be469287dc532698980
+      internalID: 2071438645
       vertices: []
       indices: 
       edges: []
@@ -190,9 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dino_2: 1920229026
-      dino_1: 410795208
-      dino_0: 610722617
+      dino_2: 783809704
+      dino_4: 2071438645
+      dino_3: 1386468613
+      dino_1: -1064148031
+      dino_0: 1674398916
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

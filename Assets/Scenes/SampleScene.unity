@@ -1247,6 +1247,14 @@ PrefabInstance:
       propertyPath: jumpHeight
       value: 6.23
       objectReference: {fileID: 0}
+    - target: {fileID: 8812082365518457388, guid: 5c4644eadffe54f85a509c055fa607fa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 783809704, guid: 64a084fbf7c169144a51f004ff31b744, type: 3}
+    - target: {fileID: 8812082365518457388, guid: 5c4644eadffe54f85a509c055fa607fa, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8812082365518457389, guid: 5c4644eadffe54f85a509c055fa607fa, type: 3}
       propertyPath: m_RootOrder
       value: 1

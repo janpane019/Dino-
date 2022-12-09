@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
     public float Speed;
     public Camera camera;
     public Sprite crouchSprite;
-    
+
+    private Animator animControler;
     private Rigidbody2D rb;
     private bool isDead;
     
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animControler = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -56,7 +58,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            
+            animControler.SetBool("IsCrouching", true);
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            animControler.SetBool("IsCrouching", false);
         }
 
         if (!isDead) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
