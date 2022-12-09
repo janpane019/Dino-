@@ -157,7 +157,7 @@ MonoBehaviour:
   - {fileID: 8673420963708287238, guid: e81b9ae704818450db4863dd88ef83f4, type: 3}
   - {fileID: 8673420963708287238, guid: f9273b49689b94625becac7218ddad08, type: 3}
   - {fileID: 8673420963708287238, guid: f0e35d1b7f38246c7a87cd86f0dd99b3, type: 3}
-  Bird: {fileID: 0}
+  Bird: {fileID: 7019111236481918699, guid: ff38be87b441f4a98a624070fe3c4a65, type: 3}
 --- !u!4 &387462954
 Transform:
   m_ObjectHideFlags: 0
@@ -1233,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8812082365518457387, guid: 5c4644eadffe54f85a509c055fa607fa, type: 3}
       propertyPath: Speed
-      value: 14
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8812082365518457387, guid: 5c4644eadffe54f85a509c055fa607fa, type: 3}
       propertyPath: camera
