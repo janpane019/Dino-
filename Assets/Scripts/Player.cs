@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public float Speed;
     public Camera camera;
+    public Sprite crouchSprite;
     
     private Rigidbody2D rb;
     private bool isDead;
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     float jumpTime;
     bool jumping;
     bool jumpCancelled;
+
+    private bool crouching;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +52,11 @@ public class Player : MonoBehaviour
             {
                 jumping = false;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            
         }
 
         if (!isDead) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);

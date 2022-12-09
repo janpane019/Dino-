@@ -29,7 +29,17 @@ public class ObstacleManager : MonoBehaviour
         {
             float spawnX = player.transform.position.x + 20 + Random.Range(4, 10);
             lastObstacleX = spawnX;
-            Instantiate(Cactuses[Random.Range(0, Cactuses.Length)], new Vector3(spawnX, 1, 0), Quaternion.identity); // Spawn obstacle prefab
+            
+            // 30% chance to spawn bird if player is 500 meters far
+            if (player.transform.position.x > 500 && Random.Range(0, 100) <= 20)
+            {
+                var bait = Random.Range(0, 100) < 35 ? 1.5f : 0; // 35% to spawn bird bait that can be avoided by doing nothing
+                Instantiate(Bird, new Vector3(spawnX, 2 + bait, 0), Quaternion.identity); // Spawn obstacle prefab
+            }
+            else
+            {
+                Instantiate(Cactuses[Random.Range(0, Cactuses.Length)], new Vector3(spawnX, 1, 0), Quaternion.identity); // Spawn obstacle prefab
+            }
         }
     }
 }
