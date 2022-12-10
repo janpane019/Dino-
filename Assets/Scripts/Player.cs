@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     private Animator animControler;
     private Rigidbody2D rb;
+    private PolygonCollider2D[] pc;
     private bool isDead;
     
     public float buttonTime = 0.5f;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animControler = GetComponent<Animator>();
+        pc = GetComponents<PolygonCollider2D>();
     }
 
     // Update is called once per frame
@@ -59,10 +61,14 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             animControler.SetBool("IsCrouching", true);
+            pc[0].enabled = false;
+            pc[1].enabled = true;
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
             animControler.SetBool("IsCrouching", false);
+            pc[0].enabled = true;
+            pc[1].enabled = false ;
         }
 
         if (!isDead) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
