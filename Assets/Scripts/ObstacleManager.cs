@@ -34,7 +34,7 @@ public class ObstacleManager : MonoBehaviour
             if (player.transform.position.x > 500 && Random.Range(0, 100) <= 20)
             {
                 var bait = Random.Range(0, 100) < 35 ? 1.5f : 0; // 35% to spawn bird bait that can be avoided by doing nothing
-                Instantiate(Bird, new Vector3(spawnX, 2 + bait, 0), Quaternion.identity); // Spawn obstacle prefab
+                Instantiate(Bird, new Vector3(spawnX, 2.5f + bait, 0), Quaternion.identity); // Spawn obstacle prefab
             }
             else
             {
