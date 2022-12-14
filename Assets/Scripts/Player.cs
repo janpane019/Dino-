@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float Speed;
-    public Camera camera;
-    public GameObject deathScreen;
+    public float StartingSpeed; // The starting speed when game starts
+    public float Speed; // Actual dino speed
+    public Camera Camera;
+    public GameObject DeathScreen;
+    public GameObject StartUI;
 
     private Animator animControler;
     private Rigidbody2D rb;
     private PolygonCollider2D[] pc;
     private bool isDead;
     
+    private bool started;
     public float buttonTime = 0.5f;
     public float jumpHeight = 5;
     public float cancelRate = 100;
@@ -36,13 +39,18 @@ public class Player : MonoBehaviour
     void Update()
     {
         transform.Translate(Speed * Time.deltaTime, 0, 0);
-        camera.transform.position = new Vector3(transform.position.x + 12, camera.transform.position.y, -10);
+        Camera.transform.position = new Vector3(transform.position.x + 12, Camera.transform.position.y, -10);
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isDead)
             {
                 Reset();
+            }
+
+            if (!started)
+            {
+                StartRunning();
             }
 
             if (!jumping || rb.velocity.y == 0)
@@ -86,7 +94,7 @@ public class Player : MonoBehaviour
             Reset();
         }
 
-        if (!isDead) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
+        if (!isDead && started) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
     }
     private void FixedUpdate()
     {
@@ -105,11 +113,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void StartRunning()
+    {
+        started = true;
+        Speed = StartingSpeed;
+        StartUI.SetActive(false);
+    }
+
     public void Reset()
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-        deathScreen.SetActive(false);
+        DeathScreen.SetActive(false);
+        StartUI.SetActive(true);
     }
 
     public void Die()
@@ -117,6 +133,6 @@ public class Player : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Static;
         isDead = true;
         Speed = 0;
-        deathScreen.SetActive(true);
+        DeathScreen.SetActive(true);
     }
 }
