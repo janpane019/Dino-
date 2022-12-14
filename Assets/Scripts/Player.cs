@@ -44,12 +44,15 @@ public class Player : MonoBehaviour
             {
                 Reset();
             }
-            
-            float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            jumping = true;
-            jumpCancelled = false;
-            jumpTime = 0;
+
+            if (!jumping || rb.velocity.y == 0)
+            {
+                float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
+                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                jumping = true;
+                jumpCancelled = false;
+                jumpTime = 0;
+            }
         }
         if (jumping)
         {

@@ -8,6 +8,7 @@ public class ObstacleManager : MonoBehaviour
     
     public GameObject[] Cactuses; // List of all cactus prefabs
     public GameObject Bird; // Bird prefab
+    public float minBirdSpawnPositionX = 300;
 
     private float lastObstacleX = 0; // Position of last obstacle
     private float spawnDistance = 15; // Minimal distance between cactuses
@@ -31,7 +32,7 @@ public class ObstacleManager : MonoBehaviour
             lastObstacleX = spawnX;
             
             // 30% chance to spawn bird if player is 500 meters far
-            if (player.transform.position.x > 500 && Random.Range(0, 100) <= 20)
+            if (player.transform.position.x > minBirdSpawnPositionX && Random.Range(0, 100) <= 20)
             {
                 var bait = Random.Range(0, 100) < 35 ? 1.5f : 0; // 35% to spawn bird bait that can be avoided by doing nothing
                 Instantiate(Bird, new Vector3(spawnX, 2.5f + bait, 0), Quaternion.identity); // Spawn obstacle prefab
