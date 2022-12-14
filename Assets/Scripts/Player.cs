@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public float Speed;
     public Camera camera;
-    public Sprite crouchSprite;
+    public GameObject deathScreen;
 
     private Animator animControler;
     private Rigidbody2D rb;
@@ -39,6 +40,11 @@ public class Player : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (isDead)
+            {
+                Reset();
+            }
+            
             float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             jumping = true;
@@ -64,11 +70,17 @@ public class Player : MonoBehaviour
             pc[0].enabled = false;
             pc[1].enabled = true;
         }
+        
         if (Input.GetKeyUp(KeyCode.S))
         {
             animControler.SetBool("IsCrouching", false);
             pc[0].enabled = true;
             pc[1].enabled = false ;
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            Reset();
         }
 
         if (!isDead) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
@@ -86,10 +98,22 @@ public class Player : MonoBehaviour
         //Debug.Log(col.gameObject.name);
         if (col.gameObject.CompareTag("Obstacle"))
         {
-            rb.bodyType = RigidbodyType2D.Static;
-            isDead = true;
-            Speed = 0;
-            Debug.Log("Die");
+            Die();
         }
+    }
+
+    public void Reset()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+        deathScreen.SetActive(false);
+    }
+
+    public void Die()
+    {
+        rb.bodyType = RigidbodyType2D.Static;
+        isDead = true;
+        Speed = 0;
+        deathScreen.SetActive(true);
     }
 }
