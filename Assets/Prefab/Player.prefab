@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1599686781
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1920229026, guid: 031c323bbae12444f8168c20944149ff, type: 3}
+  m_Sprite: {fileID: 783809704, guid: 64a084fbf7c169144a51f004ff31b744, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,9 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee51c78bcd7ca43db9959c5c81f132bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartingSpeed: 0
   Speed: 8
-  JumpHeight: 12
-  camera: {fileID: 0}
+  Camera: {fileID: 0}
+  DeathScreen: {fileID: 0}
+  StartUI: {fileID: 0}
+  buttonTime: 0.5
+  jumpHeight: 5
+  cancelRate: 100
 --- !u!50 &8812082365518457385
 Rigidbody2D:
   serializedVersion: 4

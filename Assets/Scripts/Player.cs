@@ -21,9 +21,11 @@ public class Player : MonoBehaviour
     public float buttonTime = 0.5f;
     public float jumpHeight = 5;
     public float cancelRate = 100;
+    
     float jumpTime;
     bool jumping;
     bool jumpCancelled;
+    bool canReset;
 
     private bool crouching;
 
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isDead)
+            if (isDead && canReset)
             {
                 Reset();
             }
@@ -118,6 +120,7 @@ public class Player : MonoBehaviour
         started = true;
         Speed = StartingSpeed;
         StartUI.SetActive(false);
+        animControler.SetBool("IsIdle", false);
     }
 
     public void Reset()
@@ -134,5 +137,12 @@ public class Player : MonoBehaviour
         isDead = true;
         Speed = 0;
         DeathScreen.SetActive(true);
+        StartCoroutine(AllowReset());
+    }
+
+    private IEnumerator AllowReset()
+    {
+        yield return new WaitForSeconds(1);
+        canReset = true;
     }
 }
