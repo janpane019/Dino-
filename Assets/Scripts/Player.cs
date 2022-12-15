@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private PolygonCollider2D[] pc;
     private bool isDead;
-    public int oneUps;
+    public int oneUps = 1;
     
     private bool started;
     public float buttonTime = 0.5f;
@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Score multiply");
     }
-    public void OneUp()
+    public void AddOneUp()
     {
         oneUps++;
     }

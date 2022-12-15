@@ -358,8 +358,8 @@ RectTransform:
   - {fileID: 1944153633}
   - {fileID: 936282832}
   - {fileID: 1649404342}
-  - {fileID: 2145874336}
   - {fileID: 1321263354}
+  - {fileID: 2145874336}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -789,7 +789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 0, y: -98.6}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &725682735
@@ -1060,11 +1060,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 161645304}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -32}
+  m_AnchoredPosition: {x: 10, y: -42.6}
   m_SizeDelta: {x: 150, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1321263355
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52a0b501ff899c4b9cbafc65f2bc9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1308631564}
 --- !u!114 &1321263356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,7 +2196,7 @@ RectTransform:
   m_Children:
   - {fileID: 52684301}
   m_Father: {fileID: 161645304}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

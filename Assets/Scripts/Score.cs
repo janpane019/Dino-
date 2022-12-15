@@ -7,6 +7,7 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public Player player;
+    public GameObject MutliplierText;
     private TextMeshProUGUI tmp;
     public float Multiplier = 1.0f;
     private float score = 0;
@@ -16,6 +17,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         tmp = GetComponent<TextMeshProUGUI>();
+        MutliplierText.SetActive(false);
     }
 
     private void Update()
@@ -27,7 +29,8 @@ public class Score : MonoBehaviour
 
     public void PowerUpStart()
     {
-        Multiplier = 2.0f;
+        Multiplier = 4.0f;
+        MutliplierText.SetActive(true);
     }
 
     public void PowerUpEnd()
@@ -39,5 +42,6 @@ public class Score : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Multiplier = 1.0f;
+        MutliplierText.SetActive(false);
     }
 }

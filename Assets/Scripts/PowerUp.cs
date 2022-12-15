@@ -12,7 +12,7 @@ public class PowerUp : MonoBehaviour
     {
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
@@ -23,18 +23,6 @@ public class PowerUp : MonoBehaviour
 
     public void ExecutePowerUp()
     {
-        int rnd = Random.Range(0, 100);
-        if (rnd < 100) // < 33)
-        {
-            events[0].Invoke();
-        }
-        else if (rnd < 66)
-        {
-            Debug.Log("Powerup 2");
-        }
-        else
-        {
-            Debug.Log("Powerup 3");
-        }
+        events[Random.Range(0, events.Length)].Invoke();
     }
 }

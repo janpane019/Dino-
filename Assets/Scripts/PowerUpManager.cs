@@ -7,8 +7,8 @@ public class PowerUpManager : MonoBehaviour
     public GameObject PowerUpPrefab;
     public Player player;
     
-    private float lastPowerUpX = 100; // Position of last powerups
-    private float spawnDistance = 25; // Minimal distance between powerups
+    private float lastPowerUpX = 20; // Position of last powerups
+    private float spawnDistance = 220; // Minimal distance between powerups
     
     // Update is called once per frame
     void Update()
