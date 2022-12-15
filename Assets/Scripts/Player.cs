@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private PolygonCollider2D[] pc;
     private bool isDead;
+    public int oneUps;
     
     private bool started;
     public float buttonTime = 0.5f;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //oneUps= 0;
         rb = GetComponent<Rigidbody2D>();
         animControler = GetComponent<Animator>();
         pc = GetComponents<PolygonCollider2D>();
@@ -111,7 +113,15 @@ public class Player : MonoBehaviour
         //Debug.Log(col.gameObject.name);
         if (col.gameObject.CompareTag("Obstacle"))
         {
-            Die();
+            if(oneUps == 0)
+            {
+                Die();
+            }
+            else
+            {
+                oneUps--;
+                Destroy(col.gameObject);
+            }
         }
     }
 
@@ -138,6 +148,18 @@ public class Player : MonoBehaviour
         Speed = 0;
         DeathScreen.SetActive(true);
         StartCoroutine(AllowReset());
+    }
+    public void MultiplyScore()
+    {
+        Debug.Log("Score multiply");
+    }
+    public void OneUp()
+    {
+        oneUps++;
+    }
+    public void ReverseMap()
+    {
+        Debug.Log("Reverse map");
     }
 
     private IEnumerator AllowReset()
