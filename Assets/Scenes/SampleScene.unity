@@ -153,10 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1308631564}
-  Cactuses:
+  GroundObstacles:
   - {fileID: 8673420963708287238, guid: e81b9ae704818450db4863dd88ef83f4, type: 3}
   - {fileID: 8673420963708287238, guid: f9273b49689b94625becac7218ddad08, type: 3}
   - {fileID: 8673420963708287238, guid: f0e35d1b7f38246c7a87cd86f0dd99b3, type: 3}
+  - {fileID: 8673420963708287238, guid: a29f34734fdbd45d8a463a61f5b6fed7, type: 3}
   Bird: {fileID: 7019111236481918699, guid: ff38be87b441f4a98a624070fe3c4a65, type: 3}
   minBirdSpawnPositionX: 300
 --- !u!4 &387462954

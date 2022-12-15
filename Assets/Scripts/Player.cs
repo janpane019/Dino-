@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         transform.Translate(Speed * Time.deltaTime, 0, 0);
         Camera.transform.position = new Vector3(transform.position.x + 12, Camera.transform.position.y, -10);
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             if (isDead && canReset)
             {
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         if (jumping)
         {
             jumpTime += Time.deltaTime;
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetButtonUp("Jump"))
             {
                 jumpCancelled = true;
             }
@@ -77,21 +77,21 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetAxis("Vertical") < 0)
         {
             animControler.SetBool("IsCrouching", true);
             pc[0].enabled = false;
             pc[1].enabled = true;
         }
         
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetAxis("Vertical") >= 0)
         {
             animControler.SetBool("IsCrouching", false);
             pc[0].enabled = true;
             pc[1].enabled = false ;
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetButtonDown("Reset"))
         {
             Reset();
         }

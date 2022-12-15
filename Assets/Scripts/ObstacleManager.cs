@@ -6,7 +6,7 @@ public class ObstacleManager : MonoBehaviour
 {
     public Player player;
     
-    public GameObject[] Cactuses; // List of all cactus prefabs
+    public GameObject[] GroundObstacles; // List of all ground obstacle prefabs
     public GameObject Bird; // Bird prefab
     public float minBirdSpawnPositionX = 300;
 
@@ -39,7 +39,7 @@ public class ObstacleManager : MonoBehaviour
             }
             else
             {
-                Instantiate(Cactuses[Random.Range(0, Cactuses.Length)], new Vector3(spawnX, 1, 0), Quaternion.identity); // Spawn obstacle prefab
+                Instantiate(GroundObstacles[Random.Range(0, GroundObstacles.Length)], new Vector3(spawnX, 1, 0), Quaternion.identity); // Spawn obstacle prefab
             }
         }
     }
