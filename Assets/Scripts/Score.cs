@@ -31,10 +31,6 @@ public class Score : MonoBehaviour
     {
         Multiplier = 4.0f;
         MutliplierText.SetActive(true);
-    }
-
-    public void PowerUpEnd()
-    {
         StartCoroutine(PowerUpEndCoroutine());
     }
 
