@@ -23,7 +23,7 @@ public class PowerUp : MonoBehaviour
 
     public void ExecutePowerUp()
     {
-        //events[2].Invoke();
+        //events[0].Invoke();
         events[Random.Range(0, events.Length)].Invoke();
     }
 }

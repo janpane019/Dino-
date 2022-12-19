@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,16 @@ using UnityEngine;
 public class Ground : MonoBehaviour
 {
     public GameObject player;
-    
-    private void OnBecameInvisible()
+
+    private void Update()
+    {
+        if (player.transform.position.x >= transform.position.x + 25.6)
+        {
+            OnInvisible();
+        }
+    }
+
+    private void OnInvisible()
     {
         var bc = GetComponent<BoxCollider2D>();
         float width = bc.bounds.size.x;

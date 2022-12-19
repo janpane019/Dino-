@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +8,7 @@ public class Score : MonoBehaviour
     public Player player;
     public GameObject MutliplierText;
     private TextMeshProUGUI tmp;
-    public float Multiplier = 1.0f;
+    public int Multiplier = 1;
     private float score = 0;
     private float lastPosX = 0;
     
@@ -24,20 +23,32 @@ public class Score : MonoBehaviour
     {
         score += (player.transform.position.x - lastPosX) * Multiplier;
         lastPosX = player.transform.position.x;
-        tmp.text = "SCORE: " + Math.Round(score).ToString();
+        tmp.text = "SCORE: " + System.Math.Round(score).ToString();
     }
 
     public void PowerUpStart()
     {
-        Multiplier = 4.0f;
+        Multiplier = Random.Range(2, 6);
         MutliplierText.SetActive(true);
+        MutliplierText.GetComponent<TextMeshProUGUI>().text = Multiplier.ToString() + "x";
         StartCoroutine(PowerUpEndCoroutine());
     }
 
     private IEnumerator PowerUpEndCoroutine()
     {
         yield return new WaitForSeconds(5);
-        Multiplier = 1.0f;
+        Multiplier = 1;
+        MutliplierText.GetComponent<TextMeshProUGUI>().text = Multiplier.ToString() + "x";
         MutliplierText.SetActive(false);
+    }
+
+    public void OnFlipCamera()
+    {
+        Multiplier = -1;
+    }
+    
+    public void OnFlipCameraBack()
+    {
+        Multiplier = 1;
     }
 }

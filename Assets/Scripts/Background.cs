@@ -11,9 +11,13 @@ public class Background : MonoBehaviour
     {
         // parallax
         transform.Translate(player.Speed / 2 * Time.deltaTime, 0, 0);
-
+        
+        if (player.transform.position.x >= transform.position.x + 128)
+        {
+            OnInvisible();
+        }
     }
-    private void OnBecameInvisible()
+    private void OnInvisible()
     {
         var bc = GetComponent<BoxCollider2D>();
         transform.position = new Vector3(transform.position.x + width * 2, transform.position.y, transform.position.z);

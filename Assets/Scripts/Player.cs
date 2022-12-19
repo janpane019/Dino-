@@ -12,14 +12,16 @@ public class Player : MonoBehaviour
     public GameObject DeathScreen;
     public GameObject StartUI;
     public GameObject OneUpAnimation;
+    public Score Score;
+    public int oneUps = 1;
 
     private Animator animControler;
     private Rigidbody2D rb;
     private PolygonCollider2D[] pc;
     private bool isDead;
-    public int oneUps = 1;
-    private int cameraZ = -10;
-    
+    private float cameraZ = -1f;
+    private float speedBefore;
+    private bool isStopped;
     
     private bool started;
     public float buttonTime = 0.5f;
@@ -100,7 +102,7 @@ public class Player : MonoBehaviour
             Reset();
         }
 
-        if (!isDead && started) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
+        if (!isDead && started && !isStopped) Speed = Math.Max(Math.Min(Speed + Time.deltaTime * 0.55f, 65), 8);
     }
     private void FixedUpdate()
     {
@@ -173,20 +175,51 @@ public class Player : MonoBehaviour
     
     public void FlipCamera()
     {
-        Debug.Log("JIDJSD");
-        return;
-        // Nefuguje, zkusit něco jinýho
+        StartCoroutine(WaitForCameraFlip());
+    }
+
+    private IEnumerator WaitForCameraFlip()
+    {
+        speedBefore = Speed;
+        Speed = 0;
+        isStopped = true;
+        
+        yield return new WaitForSeconds(0.75f);
+        
         var rot = Quaternion.Euler(0, 180, 0);
+        Score.OnFlipCamera();
         Camera.transform.rotation = rot;
-        cameraZ = 10;
+        cameraZ = 1f;
+        
+        yield return new WaitForSeconds(0.75f);
+        
+        Speed = speedBefore;
+        isStopped = false;
         StartCoroutine(FlipCameraBack());
     }
 
+    /*
+    private IEnumerator Lol()
+    {
+        float counter = 0;
+        while (counter < 1f)
+        {
+            yield return new WaitForFixedUpdate();
+            
+            Camera.transform.rotation = Quaternion.Euler(0, 180 * counter, 0);
+
+            counter += Time.fixedDeltaTime;
+        }
+        cameraZ = 1f;
+    }
+    */
+    
     private IEnumerator FlipCameraBack()
     {
         yield return new WaitForSeconds(5);
+        Score.OnFlipCameraBack();
         var rot = Quaternion.Euler(0, 0, 0);
         Camera.transform.rotation = rot;
-        cameraZ = -10;
+        cameraZ = -1f;
     }
 }
