@@ -20,11 +20,21 @@ public class AudioManager : MonoBehaviour
             sound.source.loop = sound.loop;
         }
     }
+    private void Start()
+    {
+        Play("ambient");
+    }
 
     public void Play(string name)
     {
         Debug.Log(name + " Played");
         Sounds sound = Array.Find(sounds, s => s.name == name);
         sound.source.Play();
+    }
+    public void Stop(string name)
+    {
+        Debug.Log(name + " Stopped");
+        Sounds sound = Array.Find(sounds, s => s.name == name);
+        sound.source.Pause();
     }
 }

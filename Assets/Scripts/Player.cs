@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private float cameraZ = -1f;
     private float speedBefore;
     private bool isStopped;
+    public AudioManager am;
     
     private bool started;
     public float buttonTime = 0.5f;
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animControler = GetComponent<Animator>();
         pc = GetComponents<PolygonCollider2D>();
+        am = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -63,6 +65,8 @@ public class Player : MonoBehaviour
 
             if (!jumping || rb.velocity.y == 0)
             {
+                am.Stop("footstep");
+                am.Play("boing");
                 float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 jumping = true;
@@ -79,6 +83,7 @@ public class Player : MonoBehaviour
             }
             if (jumpTime > buttonTime)
             {
+                am.Play("footstep");
                 jumping = false;
             }
         }
@@ -131,6 +136,7 @@ public class Player : MonoBehaviour
 
     public void StartRunning()
     {
+        am.Play("footstep");
         started = true;
         Speed = StartingSpeed;
         StartUI.SetActive(false);
@@ -147,7 +153,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        FindObjectOfType<AudioManager>().Play("ded");
+        am.Play("ded");
         rb.bodyType = RigidbodyType2D.Static;
         isDead = true;
         Speed = 0;

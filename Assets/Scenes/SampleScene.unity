@@ -2553,6 +2553,30 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ambient
+    clip: {fileID: 8300000, guid: 8ee463f1851521f4eb8c6178c5409eb8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: pickup
+    clip: {fileID: 8300000, guid: d6ba55d016fbb2c4ab2d4572e16c5352, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: footstep
+    clip: {fileID: 8300000, guid: 66cb5bcb295333d4296107f9399301f8, type: 3}
+    volume: 0.28
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: boing
+    clip: {fileID: 8300000, guid: 0039edf18bcde23488dddf6a32e5e4f8, type: 3}
+    volume: 0.03
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &2064602434
 Transform:
   m_ObjectHideFlags: 0
