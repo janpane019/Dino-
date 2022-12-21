@@ -147,6 +147,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        FindObjectOfType<AudioManager>().Play("ded");
         rb.bodyType = RigidbodyType2D.Static;
         isDead = true;
         Speed = 0;
