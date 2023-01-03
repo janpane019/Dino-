@@ -28,7 +28,7 @@ public class ObstacleManager : MonoBehaviour
         // Is player far enough to spawn obstacle?
         if (lastObstacleX + spawnDistance + additionalDistance < player.transform.position.x + 30) 
         {
-            float spawnX = player.transform.position.x + 20 + Random.Range(4, 10);
+            float spawnX = player.transform.position.x + 35 + Random.Range(4, 10);
             lastObstacleX = spawnX;
             
             // 30% chance to spawn bird if player is 500 meters far
