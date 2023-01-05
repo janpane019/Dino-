@@ -11,11 +11,13 @@ public class AudioManager : MonoBehaviour
     public Sounds[] sounds;
     public void Awake()
     {
+        float multiplier = MenuButton.Volume;
+
         foreach (Sounds sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
+            sound.source.volume = sound.volume * multiplier;
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
         }

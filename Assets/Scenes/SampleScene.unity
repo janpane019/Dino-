@@ -361,7 +361,7 @@ RectTransform:
   - {fileID: 1321263354}
   - {fileID: 2145874336}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -516,7 +516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7477648300951182350, guid: 26da770a68a4e4028bff86df69849f8f, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7477648300951182350, guid: 26da770a68a4e4028bff86df69849f8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -746,7 +746,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1293,6 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea86e232d98325b43b4a550e8d444cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Slider: {fileID: 0}
 --- !u!114 &936282834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1764,7 +1765,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1498673726
 MonoBehaviour:
@@ -1845,7 +1846,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649404341
 GameObject:
@@ -2208,7 +2209,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1734846923
 BoxCollider2D:
@@ -2439,7 +2440,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1944153632
 GameObject:
@@ -2549,7 +2550,7 @@ MonoBehaviour:
   sounds:
   - name: ded
     clip: {fileID: 8300000, guid: 5e503d552b7b0264d87c15d9e5dd63d7, type: 3}
-    volume: 1
+    volume: 0.204
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -2561,19 +2562,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: pickup
     clip: {fileID: 8300000, guid: d6ba55d016fbb2c4ab2d4572e16c5352, type: 3}
-    volume: 1
+    volume: 0.065
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: footstep
     clip: {fileID: 8300000, guid: 66cb5bcb295333d4296107f9399301f8, type: 3}
-    volume: 0.28
+    volume: 0.491
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: boing
     clip: {fileID: 8300000, guid: 0039edf18bcde23488dddf6a32e5e4f8, type: 3}
-    volume: 0.03
+    volume: 0.094
     pitch: 1
     loop: 0
     source: {fileID: 0}
