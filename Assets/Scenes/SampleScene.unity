@@ -733,6 +733,13 @@ MonoBehaviour:
   - {fileID: 8673420963708287238, guid: a29f34734fdbd45d8a463a61f5b6fed7, type: 3}
   Bird: {fileID: 7019111236481918699, guid: ff38be87b441f4a98a624070fe3c4a65, type: 3}
   minBirdSpawnPositionX: 300
+  Siren:
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &387462954
 Transform:
   m_ObjectHideFlags: 0
@@ -774,7 +781,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1380,6 +1387,14 @@ PolygonCollider2D:
       - {x: 1.2206466, y: -1.0203695}
       - {x: 1.5, y: -0.69015807}
       - {x: 1.5, y: 0.54}
+--- !u!81 &1308631576
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308631561}
+  m_Enabled: 1
 --- !u!1 &1321263353
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 
 public class ObstacleManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class ObstacleManager : MonoBehaviour
     public GameObject[] GroundObstacles; // List of all ground obstacle prefabs
     public GameObject Bird; // Bird prefab
     public float minBirdSpawnPositionX = 300;
+    public Sounds Siren;
 
     private float lastObstacleX = 0; // Position of last obstacle
     private float spawnDistance = 15; // Minimal distance between cactuses
